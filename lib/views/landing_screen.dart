@@ -115,7 +115,7 @@ class LandingViewScreen extends StatelessWidget {
                                           child: Text(
                                             "Skip now",
                                             style: TextStyle(
-                                                fontSize: 13,
+                                                fontSize: 13.5,
                                                 color: Colors.black
                                                     .withOpacity(0.6),
                                                 letterSpacing: 0.5),
@@ -141,7 +141,9 @@ class LandingViewScreen extends StatelessWidget {
                     onTap: landingScreenController.nextPageView,
                     child: Obx(
                       () => Container(
-                        width: landingScreenController.isPageEnd ? 90 : 75,
+                        width: landingScreenController.isPageEnd
+                            ? Get.width * 0.72
+                            : 75,
                         decoration: BoxDecoration(
                             color: Colors.black.withOpacity(0.7),
                             border: Border.all(style: BorderStyle.none),
@@ -160,7 +162,7 @@ class LandingViewScreen extends StatelessWidget {
                                   ? "Get Started"
                                   : "Next",
                               style: TextStyle(
-                                  fontSize: 13,
+                                  fontSize: 13.5,
                                   color: Colors.white,
                                   letterSpacing: 0.5),
                               textAlign: TextAlign.center,
