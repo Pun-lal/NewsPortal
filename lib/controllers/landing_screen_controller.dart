@@ -10,6 +10,7 @@ class LandingScreenController extends GetxController {
 
   List<LandingViewModel> landingViewModel = [
     LandingViewModel(
+        heading: "Hello,\nWelcome to News portal",
         image: "assests/Images/1_landing_image.png",
         title: "Watch latest News",
         description:
