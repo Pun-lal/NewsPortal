@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_portal/controllers/splash_screen_controller.dart';
-import 'package:news_portal/views/home_screen.dart';
 import 'package:news_portal/views/landing_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -41,10 +40,10 @@ class SplashScreen extends StatelessWidget {
                           SizedBox(
                             height: Get.height * 0.4,
                           ),
-                          Text("Keep updated on news",
+                          Text("Read and enjoy the news",
                               style: TextStyle(
                                   color: Colors.grey[700],
-                                  fontSize: 13,
+                                  fontSize: 14,
                                   fontFamily:
                                       GoogleFonts.notoSans().fontFamily)),
                         ],
