@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:news_portal/helpers/SecureStorage.dart';
 import 'package:news_portal/model/landing_model.dart';
 import 'package:news_portal/views/home_screen.dart';
 
@@ -10,7 +11,6 @@ class LandingScreenController extends GetxController {
 
   List<LandingViewModel> landingViewModel = [
     LandingViewModel(
-        heading: "Hello,\nWelcome to News portal",
         image: "assests/Images/1_landing_image.png",
         title: "Watch latest News",
         description:
@@ -29,6 +29,7 @@ class LandingScreenController extends GetxController {
 
   nextPageView() {
     if (isPageEnd) {
+      SecureStorage().writeKey(key: 'LandingKey', value: "landingPage");
       Get.off(() => HomeScreen());
     } else {
       pageViewController.nextPage(

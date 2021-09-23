@@ -19,10 +19,7 @@ class NewsPortalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(
-        primaryColorDark: Colors.white,
-        primaryColor: Colors.white,
-      ),
+      theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       // initialRoute: "/",

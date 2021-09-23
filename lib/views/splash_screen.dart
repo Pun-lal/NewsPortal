@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_portal/controllers/splash_screen_controller.dart';
+import 'package:news_portal/helpers/SecureStorage.dart';
+import 'package:news_portal/views/home_screen.dart';
 import 'package:news_portal/views/landing_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -52,7 +54,15 @@ class SplashScreen extends StatelessWidget {
                           splashScreenController.opacity.value == true ? 1 : 0,
                       duration: Duration(seconds: 3),
                       onEnd: () {
-                        Get.off(() => LandingViewScreen());
+                        SecureStorage()
+                            .readKey(key: 'LandingKey')
+                            .then((value) {
+                          if (value == null) {
+                            Get.off(() => LandingViewScreen());
+                          } else {
+                            Get.off(() => HomeScreen());
+                          }
+                        });
                       },
                     )),
               ],

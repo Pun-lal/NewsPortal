@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:news_portal/controllers/landing_screen_controller.dart';
+import 'package:news_portal/helpers/SecureStorage.dart';
 import 'package:news_portal/views/home_screen.dart';
 
 class LandingViewScreen extends StatelessWidget {
@@ -17,6 +17,7 @@ class LandingViewScreen extends StatelessWidget {
           child: Stack(
             children: [
               PageView.builder(
+                physics: new NeverScrollableScrollPhysics(),
                 onPageChanged: landingScreenController.currentIndexPage,
                 controller: landingScreenController.pageViewController,
                 itemCount: landingScreenController.landingViewModel.length,
@@ -26,17 +27,6 @@ class LandingViewScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "${landingScreenController.landingViewModel[index].heading ?? " "}",
-                            style: TextStyle(
-                                fontSize: 20.5,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: GoogleFonts.notoSans().fontFamily,
-                                letterSpacing: 0.7),
-                          ),
-                        ),
                         Opacity(
                           opacity: 0.5,
                           child: Container(
@@ -105,7 +95,12 @@ class LandingViewScreen extends StatelessWidget {
                                 : MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
-                                onTap: () => Get.off(HomeScreen()),
+                                onTap: () {
+                                  SecureStorage().writeKey(
+                                      key: 'LandingKey', value: "landingPage");
+
+                                  Get.off(HomeScreen());
+                                },
                                 child: landingScreenController.isPageEnd
                                     ? Visibility(
                                         visible: false, child: Container())
