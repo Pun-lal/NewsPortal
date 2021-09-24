@@ -43,9 +43,11 @@ class LandingViewScreen extends StatelessWidget {
                           landingScreenController
                               .landingViewModel[index].title!,
                           style: TextStyle(
-                              fontSize: 16.6,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 0.3),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "serif",
+                            color: Colors.blue[900],
+                          ),
                         ),
                         SizedBox(
                           height: 7,
@@ -86,7 +88,7 @@ class LandingViewScreen extends StatelessWidget {
                                   )),
                         ),
                         SizedBox(
-                          height: Get.height * 0.1,
+                          height: Get.height * 0.15,
                         ),
                         Obx(
                           () => Row(

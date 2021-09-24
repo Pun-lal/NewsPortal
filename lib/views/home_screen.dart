@@ -139,8 +139,8 @@ class HomeScreen extends StatelessWidget {
                       onTap: () => Scaffold.of(context).openDrawer(),
                       child: Image.asset(
                         "assests/Images/drawer.png",
-                        color: Colors.blue.shade900,
-                        scale: 46,
+                        color: Theme.of(context).accentColor,
+                        scale: 45,
                       ),
                     );
                   },
@@ -150,8 +150,8 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {},
                       icon: Icon(
                         Icons.search,
-                        color: Colors.blue.shade900,
-                        size: 26,
+                        color: Theme.of(context).accentColor,
+                        size: 25,
                       )),
                 ],
                 elevation: 0.0,
@@ -165,19 +165,23 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         letterSpacing: 0.1,
                         fontFamily: "serif",
-                        color: Colors.blue.shade900),
+                        color: Theme.of(context).accentColor),
                     children: [
                       TextSpan(
                         text: " Portal",
                         style: TextStyle(
-                            color: Colors.blue.shade800, fontSize: 15.7),
+                            color: Theme.of(context).accentColor,
+                            fontSize: 15.7),
                       )
                     ],
                   ),
                 ),
                 bottom: TabBar(
+                    indicatorWeight: 1.5,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    labelColor: Theme.of(context).accentColor,
                     labelPadding: EdgeInsets.symmetric(horizontal: 10),
-                    indicatorColor: Colors.grey[500],
+                    indicatorColor: Theme.of(context).accentColor,
                     unselectedLabelStyle:
                         TextStyle(fontWeight: FontWeight.normal),
                     labelStyle: TextStyle(
