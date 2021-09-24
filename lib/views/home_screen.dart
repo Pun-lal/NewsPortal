@@ -16,14 +16,18 @@ class HomeScreen extends StatelessWidget {
       if (value == "true") {
         SystemChrome.setSystemUIOverlayStyle(
           SystemUiOverlayStyle(
-            statusBarColor: Colors.grey[900],
+            statusBarColor: Colors.grey[850],
+            statusBarIconBrightness: Brightness.light,
           ),
         );
 
         Get.changeTheme(ThemeData.dark());
       } else {
         SystemChrome.setSystemUIOverlayStyle(
-          SystemUiOverlayStyle(statusBarColor: Colors.grey[50]),
+          SystemUiOverlayStyle(
+            statusBarColor: Colors.grey[50],
+            statusBarIconBrightness: Brightness.dark,
+          ),
         );
         Get.changeTheme(ThemeData(primaryColor: Colors.grey[50]));
       }
@@ -35,7 +39,7 @@ class HomeScreen extends StatelessWidget {
           drawer: Drawer(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * 0.04, vertical: 12),
+                  horizontal: Get.width * 0.04, vertical: Get.height * 0.005),
               child: Column(
                 children: [
                   Container(
@@ -43,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Opacity(
-                        opacity: 0.8,
+                        opacity: 0.7,
                         child: Image.asset(
                           "assests/Images/drawer_background.jpg",
                           fit: BoxFit.cover,
@@ -78,13 +82,19 @@ class HomeScreen extends StatelessWidget {
                                       if (values == "true") {
                                         SystemChrome.setSystemUIOverlayStyle(
                                           SystemUiOverlayStyle(
-                                              statusBarColor: Colors.grey[900]),
+                                            statusBarColor: Colors.grey[850],
+                                            statusBarIconBrightness:
+                                                Brightness.light,
+                                          ),
                                         );
                                         Get.changeTheme(ThemeData.dark());
                                       } else {
                                         SystemChrome.setSystemUIOverlayStyle(
                                           SystemUiOverlayStyle(
-                                              statusBarColor: Colors.grey[50]),
+                                            statusBarColor: Colors.grey[50],
+                                            statusBarIconBrightness:
+                                                Brightness.dark,
+                                          ),
                                         );
                                         Get.changeTheme(ThemeData(
                                             primaryColor: Colors.grey[50]));
