@@ -180,7 +180,8 @@ class HomeScreen extends StatelessWidget {
                     indicatorWeight: 1.5,
                     indicatorSize: TabBarIndicatorSize.label,
                     labelColor: Theme.of(context).accentColor,
-                    labelPadding: EdgeInsets.symmetric(horizontal: 10),
+                    labelPadding:
+                        EdgeInsets.symmetric(horizontal: Get.width * 0.04),
                     indicatorColor: Theme.of(context).accentColor,
                     unselectedLabelStyle:
                         TextStyle(fontWeight: FontWeight.normal),
