@@ -72,6 +72,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Obx(
                               () => Switch(
+                                activeColor: Colors.blue.shade100,
                                 value: homeScreenController.isDarkMode.value,
                                 onChanged: (bool val) {
                                   homeScreenController.doModeChange();
