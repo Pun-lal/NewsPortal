@@ -1,10 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:news_portal/helpers/SecureStorage.dart';
+import 'package:news_portal/model/NewsModel.dart';
+import 'package:news_portal/services/servicesApi.dart';
 
 class HomeScreenController extends GetxController {
   var isDarkMode = false.obs;
   var darkLightMode;
+  var isload = false;
+  var dropDownValue;
   SecureStorage secureStorage = new SecureStorage();
+  var newsModel = NewsModel();
+  List<String> listItem = ["Popular", "Latest"];
 
   @override
   void onInit() {
@@ -13,16 +21,38 @@ class HomeScreenController extends GetxController {
 
   doModeChange() {
     if (isDarkMode.value == false) {
-      readModeTheme();
       isDarkMode.value = true;
     } else {
-      readModeTheme();
       isDarkMode.value = false;
     }
   }
 
-  readModeTheme() async {
-    darkLightMode = await secureStorage.readKey(key: 'Mode');
-    return darkLightMode;
+  getNews({String? newsType, String? sortBy}) {
+    try {
+      SevicesApi.newsArticles(newsTypes: newsType, sortsBy: sortBy)
+          .then((response) {
+        if (response!.status == "ok") {
+          newsModel = response;
+          isload = true;
+          update();
+        } else {
+          isload = false;
+          update();
+          Get.showSnackbar(
+            GetBar(
+              icon: Icon(
+                FontAwesomeIcons.exclamationCircle,
+                color: Colors.grey[100],
+                size: 18,
+              ),
+              duration: Duration(seconds: 2),
+              message: "Unable to load news!!",
+            ),
+          );
+        }
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 }
