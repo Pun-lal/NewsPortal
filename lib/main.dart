@@ -20,7 +20,7 @@ class NewsPortalApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primaryColor: Colors.grey[50],
       ),
 
       debugShowCheckedModeBanner: false,

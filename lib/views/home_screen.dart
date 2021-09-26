@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   final HomeScreenController homeScreenController =
       Get.put(HomeScreenController());
+  final List i = ["ff", "ff"];
 
   @override
   Widget build(BuildContext context) {
@@ -137,89 +138,95 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          body: NestedScrollView(
-              headerSliverBuilder: (context, value) => [
-                    SliverAppBar(
-                      toolbarHeight: Get.height * 0.07,
-                      snap: true,
-                      pinned: true,
-                      floating: true,
-                      leading: Builder(
-                        builder: (context) {
-                          return GestureDetector(
-                            onTap: () => Scaffold.of(context).openDrawer(),
-                            child: Image.asset(
-                              "assests/Images/drawer.png",
+          body: Container(
+            child: NestedScrollView(
+                headerSliverBuilder: (context, value) => [
+                      SliverAppBar(
+                        toolbarHeight: Get.height * 0.06,
+                        snap: true,
+                        pinned: true,
+                        floating: true,
+                        leading: Builder(
+                          builder: (context) {
+                            return GestureDetector(
+                              onTap: () => Scaffold.of(context).openDrawer(),
+                              child: Image.asset(
+                                "assests/Images/drawer.png",
+                                color: Theme.of(context).accentColor,
+                                scale: 49,
+                              ),
+                            );
+                          },
+                        ),
+                        actions: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.search,
                               color: Theme.of(context).accentColor,
-                              scale: 45,
+                              size: 23,
                             ),
-                          );
-                        },
-                      ),
-                      actions: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.search,
-                            color: Theme.of(context).accentColor,
-                            size: 25,
+                          ),
+                        ],
+                        elevation: 0.0,
+                        brightness: Brightness.light,
+                        centerTitle: true,
+                        title: RichText(
+                          text: TextSpan(
+                            text: "News",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 0.1,
+                                fontFamily: "serif",
+                                color: Theme.of(context).accentColor),
+                            children: [
+                              TextSpan(
+                                text: " Portal",
+                                style: TextStyle(
+                                    color: Theme.of(context).accentColor,
+                                    fontSize: 14.7),
+                              )
+                            ],
                           ),
                         ),
-                      ],
-                      elevation: 0.0,
-                      brightness: Brightness.light,
-                      centerTitle: true,
-                      title: RichText(
-                        text: TextSpan(
-                          text: "News",
-                          style: TextStyle(
-                              fontSize: 17.7,
+                        bottom: TabBar(
+                          indicatorWeight: 1.5,
+                          indicatorSize: TabBarIndicatorSize.label,
+                          labelColor: Theme.of(context).accentColor,
+                          labelPadding: EdgeInsets.symmetric(
+                              horizontal: Get.width * 0.04),
+                          indicatorColor: Theme.of(context).accentColor,
+                          unselectedLabelStyle:
+                              TextStyle(fontWeight: FontWeight.normal),
+                          labelStyle: TextStyle(
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 0.1,
-                              fontFamily: "serif",
-                              color: Theme.of(context).accentColor),
-                          children: [
-                            TextSpan(
-                              text: " Portal",
-                              style: TextStyle(
-                                  color: Theme.of(context).accentColor,
-                                  fontSize: 15.7),
-                            )
+                              letterSpacing: 0.5),
+                          isScrollable: true,
+                          tabs: [
+                            Tab(text: "Sports"),
+                            Tab(text: "Educational"),
+                            Tab(text: "Health"),
+                            Tab(text: "Society"),
                           ],
                         ),
                       ),
-                      bottom: TabBar(
-                        indicatorWeight: 1.5,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        labelColor: Theme.of(context).accentColor,
-                        labelPadding:
-                            EdgeInsets.symmetric(horizontal: Get.width * 0.04),
-                        indicatorColor: Theme.of(context).accentColor,
-                        unselectedLabelStyle:
-                            TextStyle(fontWeight: FontWeight.normal),
-                        labelStyle: TextStyle(
-                            fontSize: 17,
-                            fontFamily: "serif",
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0.5),
-                        isScrollable: true,
-                        tabs: [
-                          Tab(text: "Sports"),
-                          Tab(text: "Educational"),
-                          Tab(text: "Health"),
-                          Tab(text: "Society"),
-                        ],
-                      ),
-                    ),
-                  ],
-              body: TabBarView(
-                children: [
-                  TabBarWidgets(newsTypes: "Sports"),
-                  TabBarWidgets(newsTypes: "Education"),
-                  TabBarWidgets(newsTypes: "Health"),
-                  TabBarWidgets(newsTypes: "Society"),
-                ],
-              )),
+                    ],
+                body: Container(
+                  padding: EdgeInsets.symmetric(
+                      vertical: Get.height * 0.015,
+                      horizontal: Get.width * 0.046),
+                  child: TabBarView(
+                    children: [
+                      TabBarWidgets(newsTypes: "Sports"),
+                      TabBarWidgets(newsTypes: "Education"),
+                      TabBarWidgets(newsTypes: "Health"),
+                      TabBarWidgets(newsTypes: "Society"),
+                    ],
+                  ),
+                )),
+          ),
         ),
       ),
     );

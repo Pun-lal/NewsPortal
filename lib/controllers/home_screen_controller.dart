@@ -12,7 +12,6 @@ class HomeScreenController extends GetxController {
   var dropDownValue;
   SecureStorage secureStorage = new SecureStorage();
   var newsModel = NewsModel();
-  List<String> listItem = ["Popular", "Latest"];
 
   @override
   void onInit() {
