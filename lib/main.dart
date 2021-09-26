@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:news_portal/views/splash_screen.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: "assests/.env");
   runApp(MyApp());
 }
 
